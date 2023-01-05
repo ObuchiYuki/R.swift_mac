@@ -18,7 +18,7 @@ extension NibReferenceContainer {
      - parameter ownerOrNil: The owner, if the owner parameter is nil, connections to File's Owner are not permitted.
      - parameter options: Options are identical to the options specified with` -[NSBundle loadNibNamed:owner:options:]`
      */
-    public func callAsFunction(withOwner ownerOrNil: Any?) -> FirstView? {
+    public func callAsFunction(withOwner ownerOrNil: Any?) -> FirstView! {
         var topLevelObjects: NSArray? = nil
         NSNib(nibNamed: name, bundle: bundle)?.instantiate(withOwner: ownerOrNil, topLevelObjects: &topLevelObjects)
         return topLevelObjects?.firstObject as? FirstView
@@ -30,7 +30,7 @@ extension NibReferenceContainer {
      - parameter ownerOrNil: The owner, if the owner parameter is nil, connections to File's Owner are not permitted.
      - parameter options: Options are identical to the options specified with` -[NSBundle loadNibNamed:owner:options:]`
      */
-    public func firstView(withOwner ownerOrNil: Any?) -> FirstView? {
+    public func firstView(withOwner ownerOrNil: Any?) -> FirstView! {
         var topLevelObjects: NSArray? = nil
         NSNib(nibNamed: name, bundle: bundle)?.instantiate(withOwner: ownerOrNil, topLevelObjects: &topLevelObjects)
         return topLevelObjects?.firstObject as? FirstView
@@ -59,7 +59,7 @@ extension NSNib {
 
      - returns: The initialized UINib object. An exception is thrown if there were errors during initialization or the nib file could not be located.
      */
-    public convenience init?<Nib: NibReferenceContainer>(resource: Nib) {
+    public convenience init!<Nib: NibReferenceContainer>(resource: Nib) {
         self.init(nibNamed: resource.name, bundle: resource.bundle)
     }
 }

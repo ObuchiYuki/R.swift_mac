@@ -22,7 +22,7 @@ extension ColorResource {
      - returns: A color that exactly or best matches the desired traits with the given resource (`R.color.*`), or nil if no suitable color was found.
      */
     //    @available(*, deprecated, message: "Use UIColor(resource:) initializer instead")
-    public func callAsFunction() -> NSColor? {
+    public func callAsFunction() -> NSColor! {
         NSColor(named: name, bundle: bundle)
     }
 }
@@ -37,8 +37,8 @@ extension NSColor {
 
      - returns: A color that exactly or best matches the desired traits with the given resource (`R.color.*`), or nil if no suitable color was found.
      */
-    public convenience init?(resource: ColorResource) {
-        self.init(named: resource.name, bundle: resource.bundle)
+    public convenience init!(resource: ColorResource) {
+        self.init(named: resource.name, bundle: resource.bundle)!
     }
 
 }

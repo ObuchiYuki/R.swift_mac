@@ -23,7 +23,7 @@ extension ImageResource {
      - returns: An image that exactly or best matches the desired traits with the given resource (`R.image.*`), or nil if no suitable image was found.
      */
     //    @available(*, deprecated, message: "Use UIImage(resource:) initializer instead")
-    public func callAsFunction() -> NSImage? {
+    public func callAsFunction() -> NSImage! {
         bundle.image(forResource: name)
     }
 }
@@ -38,7 +38,7 @@ extension NSImage {
 
      - returns: An image that exactly or best matches the desired traits with the given resource (`R.image.*`), or nil if no suitable image was found.
      */
-    public convenience init?(resource: ImageResource) {
+    public convenience init!(resource: ImageResource) {
         guard let url = resource.bundle.urlForImageResource(resource.name) else { return nil }
         self.init(contentsOf: url)
     }

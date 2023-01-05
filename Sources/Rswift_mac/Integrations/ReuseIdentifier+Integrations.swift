@@ -32,7 +32,7 @@ extension NSTableView {
 
      - precondition: You must register a class or nib file using the registerNib: or registerClass:forCellReuseIdentifier: method before calling this method.
      */
-    public func dequeueReusableCell<Identifier: ReuseIdentifierContainer>(withIdentifier identifier: Identifier) -> Identifier.Reusable? where Identifier.Reusable: NSView {
+    public func dequeueReusableCell<Identifier: ReuseIdentifierContainer>(withIdentifier identifier: Identifier) -> Identifier.Reusable! where Identifier.Reusable: NSView {
         self.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: identifier.identifier), owner: self) as? Identifier.Reusable
     }
 }
