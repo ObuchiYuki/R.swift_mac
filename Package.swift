@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "R.swift_mac",
+    name: "Rswift_mac",
     platforms: [
         .macOS(.v10_15)
     ],
