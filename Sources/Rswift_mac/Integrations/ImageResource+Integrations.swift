@@ -12,7 +12,7 @@ import RswiftResources
 #if canImport(AppKit)
 import AppKit
 
-extension ImageResource {
+extension RswiftResources.ImageResource {
 
     /**
      Returns the image from this resource (`R.image.*`) that is compatible with the trait collection.
@@ -38,7 +38,7 @@ extension NSImage {
 
      - returns: An image that exactly or best matches the desired traits with the given resource (`R.image.*`), or nil if no suitable image was found.
      */
-    public convenience init!(resource: ImageResource) {
+    public convenience init!(resource: RswiftResources.ImageResource) {
         guard let url = resource.bundle.urlForImageResource(resource.name) else { return nil }
         self.init(contentsOf: url)
     }

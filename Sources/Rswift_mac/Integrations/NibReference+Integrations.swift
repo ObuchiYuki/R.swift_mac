@@ -10,7 +10,7 @@ import RswiftResources
 #if canImport(AppKit)
 import AppKit
 
-extension NibReferenceContainer {
+extension RswiftResources.NibReferenceContainer {
 
     /**
      Instantiate the nib to get first object from this nib
@@ -59,7 +59,7 @@ extension NSNib {
 
      - returns: The initialized UINib object. An exception is thrown if there were errors during initialization or the nib file could not be located.
      */
-    public convenience init!<Nib: NibReferenceContainer>(resource: Nib) {
+    public convenience init!<Nib: RswiftResources.NibReferenceContainer>(resource: Nib) {
         self.init(nibNamed: resource.name, bundle: resource.bundle)
     }
 }
@@ -72,7 +72,7 @@ extension NSViewController {
 
      - returns: A newly initialized UIViewController object.
      */
-    public convenience init<Nib: NibReferenceContainer>(nib: Nib) {
+    public convenience init<Nib: RswiftResources.NibReferenceContainer>(nib: Nib) {
         self.init(nibName: nib.name, bundle: nib.bundle)
     }
 }

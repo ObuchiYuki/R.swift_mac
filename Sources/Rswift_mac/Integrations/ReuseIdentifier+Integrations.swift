@@ -18,7 +18,7 @@ extension NSTableView {
 
      - parameter resource: A nib resource (`R.nib.*`) containing a table view cell that has a reuse identifier
      */
-    public func register<Resource: NibReferenceContainer & ReuseIdentifierContainer>(_ resource: Resource) where Resource.Reusable: NSView {
+    public func register<Resource: RswiftResources.NibReferenceContainer & RswiftResources.ReuseIdentifierContainer>(_ resource: Resource) where Resource.Reusable: NSView {
         self.register(NSNib(resource: resource), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: resource.identifier))
     }
 
@@ -32,7 +32,7 @@ extension NSTableView {
 
      - precondition: You must register a class or nib file using the registerNib: or registerClass:forCellReuseIdentifier: method before calling this method.
      */
-    public func dequeueReusableCell<Identifier: ReuseIdentifierContainer>(withIdentifier identifier: Identifier) -> Identifier.Reusable! where Identifier.Reusable: NSView {
+    public func dequeueReusableCell<Identifier: RswiftResources.ReuseIdentifierContainer>(withIdentifier identifier: Identifier) -> Identifier.Reusable! where Identifier.Reusable: NSView {
         self.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: identifier.identifier), owner: self) as? Identifier.Reusable
     }
 }
